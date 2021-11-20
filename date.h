@@ -5,7 +5,7 @@
 
 class Date {
 public:
-    Date();
+    Date(int, string, int);
     string Display();
     int getDay();
     int getMonth();
