@@ -6,16 +6,39 @@
 
 using namespace std;
 
+//-----------------------------------------------------------------------------
+//
+// Periodical class: a type of Entity which is a periodical (newsletter,
+//                   magazine, etc.)
+// 
+// Implementation and assumptions:
+//  -- derived from Entity class so inherits Entity's members and methods
+//     and implements these
+//  -- additionally has a data member for the periodical's title
+//-----------------------------------------------------------------------------
+
 class Periodical : public Entity {
 public:
+// Default constructor
+    Periodical();
+// Sets title data member to parameter
+    void setTitle(string);
+// Returns Periodical's title
+    string getTitle();
+// > operator for comparison with other Periodical objects
     bool operator>(const Periodical&) const;
+// < operator for comparison with other Periodical objects
     bool operator<(const Periodical&) const;
+// >= operator for comparison with other Periodical objects
     bool operator>=(const Periodical&) const;
+// <= operator for comparison with other Periodical objects
     bool operator<=(const Periodical&) const;
+// == operator for comparison with other Periodical objects
     bool operator==(const Periodical&) const;
+// Outputs the object to command line
     void display() const;
 private:
-    string title;
+    string title;   // The periodical's title
 };
 
 #endif
