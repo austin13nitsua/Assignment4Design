@@ -24,24 +24,32 @@ public:
 // Destructor
     ~Entity();
 // > operator for comparison with other Entity objects
-    bool operator>(const Entity&) const = 0;
+    virtual bool operator>(const Entity&) const = 0;
 // < operator for comparison with other Entity objects
-    bool operator<(const Entity&) const = 0;
+    virtual bool operator<(const Entity&) const = 0;
 // >= operator for comparison with other Entity objects
-    bool operator>=(const Entity&) const = 0;
+    virtual bool operator>=(const Entity&) const = 0;
 // <= operator for comparison with other Entity objects
-    bool operator<=(const Entity&) const = 0;
+    virtual bool operator<=(const Entity&) const = 0;
 // == operator for comparison with other Entity objects
-    bool operator==(const Entity&) const = 0;
+    virtual bool operator==(const Entity&) const = 0;
 // Outputs the object to command line
-    void display() const = 0;
-    
+    virtual void display() const = 0;
+//
+    virtual char getType() const = 0;
+// Returns number of copies owned which aren't checked out
+    int getAvailableCopies() const;
+// Called when an Entity is checked in
+    void incrementAvailableCopies();
+// Called when an Entity is checked out
+    void decrementAvailableCopies();
+
 protected:
-    int numCheckedOut;  // How many copies of the item are currently checked
-                        // out
-    int totalCopies;    // How many copies of the item exist in the system
-    Patron* checkedOut; // Array of Patrons who have checked out the item
-    Date date;          // Date the item was released/published
+    int numCheckedOut;      // How many copies of the item are currently checked
+                            // out
+    int totalCopies;        // How many copies of the item exist in the system
+    int copiesAvailable;    // How many of total copies are not checked out
+    Date date;              // Date the item was released/published
 };
 
 #endif

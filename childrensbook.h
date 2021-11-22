@@ -1,6 +1,7 @@
 #ifndef CHILDRENSBOOK_H
 #define CHILDRENSBOOK_H
 
+#include "date.h"
 #include "entity.h"
 #include <string>
 
@@ -18,12 +19,8 @@ using namespace std;
 
 class ChildrensBook : public Entity {
 public:
-// Default constructor
-    ChildrensBook();
-// Sets author member to parameter
-    void setAuthor(string);
-// Sets title member to parameter
-    void setTitle(string);
+// Constructor, default parameter for totalCopies
+    ChildrensBook(string, string, Date, int=5);
 // Returns author member;
     string getAuthor();
 // Returns title member

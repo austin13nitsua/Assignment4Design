@@ -19,8 +19,8 @@ using namespace std;
 
 class Periodical : public Entity {
 public:
-// Default constructor
-    Periodical();
+// Constructor, default parameter for totalCopies
+    Periodical(string, Date, int=1);
 // Sets title data member to parameter
     void setTitle(string);
 // Returns Periodical's title

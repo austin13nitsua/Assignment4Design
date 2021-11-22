@@ -18,8 +18,8 @@ using namespace std;
 
 class FictionBook : public Entity {
 public:
-// Default constructor
-    FictionBook();
+// Constructor, default parameter for totalCopies
+    FictionBook(string, string, Date, int=5);
 // Sets author member to parameter
     void setAuthor(string);
 // Sets title member to parameter
